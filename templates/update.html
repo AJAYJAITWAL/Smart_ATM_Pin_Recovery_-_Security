@@ -1,0 +1,118 @@
+{% load static %}
+<!Doctype html>
+<html>
+<head>
+<title>ATM</title>
+<style>
+*{
+	box-sizing:border-box;
+}
+body {
+  background-image:url('{% static "image/a1.jpg" %}');
+  background-size:cover;
+}
+.wrap11{
+	font-size:55px;
+	font-weight:bold;
+	margin-top:45px;
+	padding:5px;
+	color:white;
+
+}
+
+.wrap{
+	max-width:500px;
+	margin:auto;
+	margin-top:40px;
+	padding:40px;
+	font-family:saas-serif;
+	background:gray;
+	border-radius:30px;
+}
+.wrap h2{
+	font-size:2em;
+	text-align:center;
+}
+form{
+	margin-top:5px;
+}
+input[type=text],input[type=password],input[type=submit]{
+	width:100%;
+	padding:15px;
+	margin-bottom:15px;
+	font-size:17px;
+	border-radius:30px;
+	outline:none;
+	border:none;
+	border:2px solid gray;
+}
+label{
+	font-size:30px;
+	font-weight:bold;
+	margin-top:15px;
+	padding:15px;
+	color:red;
+
+}
+h5{
+	background: rgb(235, 112, 112);
+	border:none;
+	color:#fff;
+	font-size:15px;
+	font-weight:bold;
+	margin-top:10px;
+	padding:15px;
+	cursor:pointer;
+}
+input[type=submit]{
+	background:blue;
+	border:none;
+	color:#fff;
+	font-size:20px;
+	font-weight:bold;
+	margin-top:10px;
+	padding:15px;
+	cursor:pointer;
+}
+input[type=submit]:hover{
+	background:green;
+}
+	
+
+</style>
+	<script>
+		function validateForm() {
+		  var x = document.forms["myForm"]["number"].value;
+		  if (x.length != 4) {
+			alert("Enter 4 Digit pin Number");
+			return false;
+		  }
+		}
+		</script>
+</head>
+<body>
+	<div class="wrap11">
+		<marquee direction="right">Welcome {{name}}</marquee>
+	</div>
+<div class="wrap">
+		<form method="POST"  onsubmit="return validateForm()">
+		{% csrf_token %} 
+		{% if error %}
+		<h5 style="color: black;"> {{error}}</h5>
+		{% endif %}
+		<center><label>update pin</label><br></center><br>
+			<input type="password" placeholder="only 4 digit number" name="number">
+			<center>
+			<input type="Submit" value="Enter">
+			</center>
+
+
+			<!--<input type="submit" value="ENTER">-->
+		</form>
+
+		<a href="/"><input type="Submit" value="Cancel"></a>
+</div>
+</body>
+</html>
+
+

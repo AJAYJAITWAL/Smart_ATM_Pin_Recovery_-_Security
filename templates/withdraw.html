@@ -1,0 +1,118 @@
+{% load static %}
+<!Doctype html>
+<html>
+<head>
+<title>ATM</title>
+<style>
+*{
+	box-sizing:border-box;
+}
+body {
+  background-image:url('{% static "image/atm.jfif" %}');
+  background-size:930px;
+margin-left:45px;
+}
+.wrap12{
+	font-size:55px;
+	font-weight:bold;
+	margin-top:45px;
+	/* padding:5px; */
+	padding-left:10px;
+	color:rgb(235, 150, 111);
+
+}
+.wrap11{
+	font-size:35px;
+	font-weight:bold;
+	margin-left:10px;
+	margin-top: 50px;
+	padding:50px;
+	color:Red;
+
+}
+.wrap1{
+	max-width:400px;
+	margin-left:0px;
+	margin-top: -240px;
+	padding:40px;
+	font-family:saas-serif;
+	background:tansparent;
+	border-radius:30px;
+}
+
+.wrap{
+	max-width:500px;
+	margin-left:800px;
+	margin-top:-30px;
+	padding:40px;
+	font-family:saas-serif;
+	background:tansparent;
+	border-radius:30px;
+}
+.wrap h2{
+	font-size:2em;
+	text-align:500px;
+}
+form{
+	margin-top:5px;
+}
+input[type=text],input[type=submit]{
+	width:100%;
+	padding:15px;
+	margin-bottom:15px;
+	font-size:17px;
+	border-radius:30px;
+	outline:none;
+	border:none;
+	border:2px solid gray;
+}
+label{
+	font-size:55px;
+	font-weight:bold;
+	margin-top:15px;
+	padding:15px;
+	color:red;
+
+}
+input[type=submit]{
+	background:black;
+	border:none;
+	color:pink;
+	font-size:20px;
+	font-weight:bold;
+	margin-top:10px;
+	padding:15px;
+	cursor:pointer;
+}
+input[type=submit]:hover{
+	background:green;
+}
+	
+
+</style>
+</head>
+<body>
+	<div class="wrap12">
+		YourBank (YB)
+	</div>
+<div class="wrap11">
+	Welcome {{name}}
+</div>
+<div class="wrap">
+			<a href="balance/{{name}}"><input type="Submit" value="Balance"></a>
+			<a href="/update_pin/{{name}}"><input type="Submit" value="Pin Generate"></a>
+</div>
+<div class="wrap1">
+			<a href="/debit/{{name}}"><input type="Submit" value="Withdraw"></a>
+			<a href="/deposit/{{name}}"><input type="Submit" value="Deposit"></a>
+
+			</center>
+			
+
+			<!--<input type="submit" value="ENTER">-->
+	
+		
+	
+</div>
+</body>
+</html>
